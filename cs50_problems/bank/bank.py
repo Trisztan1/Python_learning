@@ -1,9 +1,9 @@
-greetings = input()
+greetings = input("Greeting: ").lower().strip()
 
-match greetings:
-    case "Hello" | "Hello, Newman":
-        print("$0")
-    case "How you doing?":
-        print("$20")
-    case "What's happening?":
-        print("$0")
+if greetings.startswith("hello"):
+    print("$0")
+elif greetings.startswith("h"):
+    print("$20")
+else:
+    print("$100")
+
