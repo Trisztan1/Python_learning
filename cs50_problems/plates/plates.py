@@ -9,13 +9,24 @@ def main():
 def is_valid(s):
     invalid_first = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
     invalid_input = [" ", ",", "."]
+
     if len(s) < 2 or len(s) > 6 or s[-2] == "0":
         return False
-    
+
+    if len(s) == 2:
+        both_invalid = True
+        for char in s:
+            if char not in invalid_first:
+                both_invalid = False
+                break
+        if both_invalid:
+            return False
+
+
     for char in s:
         if char in invalid_input:
             return False
-    
+
     for char in s[:-2]:
         if char in invalid_first:
             return False
